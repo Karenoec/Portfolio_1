@@ -3,8 +3,6 @@ abstract public class Vehicle {
 
 }
 
-public class Car extends Vehicle{
-    
-
+class Car extends Vehicle{
 
 }

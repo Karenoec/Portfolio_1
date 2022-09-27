@@ -6,3 +6,8 @@ abstract public class Vehicle {
 class Car extends Vehicle{
 
 }
+
+
+class Trucks extends Vehicle{
+
+}

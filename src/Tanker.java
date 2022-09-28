@@ -4,9 +4,12 @@ The tankers have 1-10 compartments which each has a capacity and which each can 
 import java.util.ArrayList;
 
 public class Tanker extends Vessel {
-    ArrayList<Compartment> compartmentAmount = new ArrayList<>();
+    //Variable used to store the maximum amount of compartments the specific Tanker object has
     int compartmentMax;
+    //Arraylist used to keep track of the compartments on the specific Tanker object
+    ArrayList<Compartment> compartmentAmount = new ArrayList<>();
 
+    //Constructor for Tanker objects
     public Tanker (String flagNation, int draft, int length, int width, int compartmentMax){
         this.flagNation = flagNation;
         this.draft = draft;
@@ -15,13 +18,20 @@ public class Tanker extends Vessel {
         this.compartmentMax = compartmentMax;
     }
 
-    //Is used to set relevant information for vessels and make the cargo amount accessible through methods
-    public void loadingCargo(Compartment ){
-        if(compartmentAmount.size() < compartmentMax ){
-        }
+    @Override
+    public void loadingCargo(ArrayList<Cargo> cargo) {
     }
 
-    //Is used to compute the fraction of the total capacity that is used
-    //public int utilityLevelOfCapacity(){}
 
+
+    /* public void loadingCargo(Compartment compartment){
+        if(compartmentAmount.size() < compartmentMax ){
+        }
+    }*/
+
+    //Method that calculates the fraction of the total capacity that is used
+    @Override
+    public float utilityLevelOfCapacity() {
+        return 0;
+    }
 }

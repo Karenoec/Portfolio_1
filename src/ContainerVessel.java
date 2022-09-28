@@ -3,34 +3,39 @@ A container vessel can carry a specific number of containers.
 
  */
 
+import java.util.ArrayList;
+
 public class ContainerVessel extends Vessel{
-    int containerAmount;
-
-    //Skal måske sættes når et containerskib-object oprettes
+    //Variable used to store the maximum amount of containers the specific ContainerVessel object can carry
     int containerMax;
-    int capacity;
+    //Arraylist used to keep track of the containers loaded on the ContainerVessel
+    ArrayList<Container> containerLoaded= new ArrayList<>();
 
 
-    public ContainerVessel(String flagNation, int draft, int length, int width){
+    //Constructor for ContainerVessel objects
+    public ContainerVessel(String flagNation, int draft, int length, int width, int containerMax){
         this.flagNation = flagNation;
         this.draft = draft;
         this.length = length;
         this.width = width;
-        containerAmount = 0;
+        this.containerMax = containerMax;
     }
 
+    //Method that puts checks whether there is space available for a container, and checks
     //Is used to set relevant information for vessels and make the cargo amount accessible through methods
-    public void loadingCargo(int container){
-        if (containerAmount < containerMax){
-        containerAmount = containerAmount + container;
+    @Override
+    public void loadingCargo(ArrayList<Cargo> cargoList) {
+        for(Cargo item : cargoList){
+            if (containerLoaded.size() < containerMax && item instanceof Container){
+                containerLoaded.add((Container)item);
+            }
         }
     }
 
-    //Is used to compute the fraction of the total capacity that is used
-    //Skal måske laves til float fordi det er en brøkdel
-    public int utilityLevelOfCapacity(){
-        capacity = containerAmount/containerMax;
-        return capacity;
+    //Method that calculates the fraction of the total capacity that is used
+    @Override
+    public float utilityLevelOfCapacity() {
+        return containerLoaded.size()/containerMax;
     }
 
 }

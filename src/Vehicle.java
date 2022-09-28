@@ -1,5 +1,5 @@
-abstract public class Vehicle {
-    int length;
+abstract public class Vehicle extends Cargo {
+    protected int length;
 
     //public Vehicle(){}
 

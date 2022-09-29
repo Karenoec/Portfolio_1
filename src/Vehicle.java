@@ -1,7 +1,5 @@
 abstract public class Vehicle extends Cargo {
-    protected int length;
-
-    //public Vehicle(){}
+    int length;
 
     abstract public int getLength();
 }
@@ -17,7 +15,6 @@ class Car extends Vehicle{
         return length;
     }
 }
-
 
 class Truck extends Vehicle{
 

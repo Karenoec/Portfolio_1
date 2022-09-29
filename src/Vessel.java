@@ -8,5 +8,13 @@ abstract class Vessel {
 
     abstract public void loadingCargo(ArrayList<Cargo> cargoList);
 
-    abstract public float utilityLevelOfCapacity();
+    abstract public double utilityLevelOfCapacity();
+
+    abstract public int getPosition();
+
+    abstract public int setDestination();
+
+    abstract public int getDestination();
+
+    abstract public boolean vesselAvailable();
 }

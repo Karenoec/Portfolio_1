@@ -51,6 +51,6 @@ public class RoRoVessel extends Vessel{
     //Method that calculates the fraction of the total capacity that is used
     @Override
     public float utilityLevelOfCapacity() {
-        return 0;
+        return calculateLoadedVehicleLength() + laneMeter;
     }
 }

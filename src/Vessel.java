@@ -10,6 +10,8 @@ abstract class Vessel {
 
     abstract public double utilityLevelOfCapacity();
 
+    abstract public int loadedCargoAmount();
+
     abstract public int getPosition();
 
     abstract public int setDestination();

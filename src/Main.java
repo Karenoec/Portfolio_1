@@ -14,33 +14,41 @@ public class Main {
     public static void main(String[] args) {
 
         // Demonstrating loading cargo on a ContainerVessel
-        Vessel Mary = new ContainerVessel("Germany", 4, 60, 20, 3);
-        Cargo container1 = new Container();
-        Cargo container2 = new Container();
-        Cargo container3 = new Container();
+        ContainerVessel Mary = new ContainerVessel("Germany", 4, 60, 20, 3);
+        Container container1 = new Container();
+        Container container2 = new Container();
+        Container container3 = new Container();
         ArrayList<Cargo> containerList = new ArrayList<>();
         containerList.add(container1);
         containerList.add(container2);
         containerList.add(container3);
         Mary.loadingCargo(containerList);
+        System.out.println("There are " + Mary.loadedCargoAmount() + " containers occupied on the container vessel and "
+                + Mary.utilityLevelOfCapacity()*100 + "% of the capacity is being used.");
 
         // Demonstrating loading cargo on a Tanker
-        Vessel Sally = new Tanker("Spain", 6, 80,30,5);
-        Cargo compartment1 = new Compartment();
-        Cargo compartment2 = new Compartment();
+        Tanker Sally = new Tanker("Spain", 6, 80,30,5);
+        Compartment compartment1 = new Compartment();
+        Compartment compartment2 = new Compartment();
         ArrayList<Cargo> compartmentList = new ArrayList<>();
         compartmentList.add(compartment1);
         compartmentList.add(compartment2);
         Sally.loadingCargo(compartmentList);
+        System.out.println("There are " + Sally.loadedCargoAmount() + " compartments occupied on the tanker and "
+                + Sally.utilityLevelOfCapacity()*100 + "% of the capacity is being used.");
+
 
         // Demonstrating loading cargo on a RoRoVessel
-        Vessel Dani = new RoRoVessel("Australia", 6, 120,30, 80);
-        Vehicle car1 = new Car();
-        Vehicle truck1 = new Truck();
+        RoRoVessel Dani = new RoRoVessel("Australia", 6, 120,30, 80);
+        Car car1 = new Car();
+        Truck truck1 = new Truck();
         ArrayList<Cargo> cargoList = new ArrayList<>();
         cargoList.add(car1);
         cargoList.add(truck1);
         Dani.loadingCargo(cargoList);
+        System.out.println("There are " + Dani.loadedCargoAmount() + " vehicles occupied on the RoRo vessel and "
+                + Dani.utilityLevelOfCapacity()*100 + "% of the capacity is being used.");
+
     }
 
 }

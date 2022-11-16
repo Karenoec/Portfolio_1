@@ -40,12 +40,10 @@ public class Tanker extends Vessel {
         }
     }
 
-    // FIXME get this shit to work and then add it to the other vessel-classes so we can use it in Main - ask Mads
-    public void displayLoadedCargo(){
-        System.out.println("The tanker is loaded with: ");
-        for (Compartment compartment : compartmentOccupied) {
-            System.out.println(compartment + ", ");
-        }
+    // Method that returns the amount of cargo on the Tanker
+    @Override
+    public int loadedCargoAmount() {
+        return compartmentOccupied.size();
     }
 
     //Method that calculates the fraction of the total capacity that is used on the Tanker

@@ -43,6 +43,19 @@ public class RoRoVessel extends Vessel{
         return loadedLength;
     }
 
+    public void displayLoadedCargo(){
+        System.out.println("The tanker is loaded with: ");
+        for (Vehicle vehicle : vehiclesOnBoard) {
+            System.out.println(vehicle + ", ");
+        }
+    }
+
+    // Method that returns the amount of cargo on the RoRoVessel
+    @Override
+    public int loadedCargoAmount() {
+        return vehiclesOnBoard.size();
+    }
+
     //Method that calculates the fraction of the total capacity that is used on the RoRoVessel
     @Override
     public double utilityLevelOfCapacity() {

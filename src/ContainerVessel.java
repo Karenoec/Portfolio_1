@@ -34,6 +34,12 @@ public class ContainerVessel extends Vessel{
         }
     }
 
+    // Method that returns the amount of cargo on the ContainerVessel
+    @Override
+    public int loadedCargoAmount() {
+        return containersOnBoard.size();
+    }
+
     //Method that calculates the fraction of the total capacity that is used on the ContainerVessel
     @Override
     public double utilityLevelOfCapacity() {

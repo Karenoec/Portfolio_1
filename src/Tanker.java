@@ -16,10 +16,11 @@ public class Tanker extends Vessel {
 
         //If compartmentMax exceeds 10, the program will return an error message and stop
         if (compartmentMax < 1 || compartmentMax > 10) {
-            throw new IllegalArgumentException("CompartmentMax = " + compartmentMax + " is out of range. Tankers can only consist of 1 to 10 compartments.");
-        /*if(compartmentMax >10){
-            compartmentMax = 10;
-        }*/
+            throw new IllegalArgumentException("CompartmentMax = " + compartmentMax
+                    + " is out of range. Tankers can only consist of 1 to 10 compartments.");
+            // Code taken from https://stackoverflow.com/questions/6924673/limit-variable-value-best-way
+            // By: Thilo. 3rd of August, 2011.
+        }
     }
 
     //Adds compartments to compartmentOccupied arraylist
@@ -50,5 +51,25 @@ public class Tanker extends Vessel {
     @Override
     public double utilityLevelOfCapacity() {
         return (double) compartmentOccupied.size() / (double) compartmentMax;
+    }
+
+    @Override
+    public int getPosition() {
+        return 0;
+    }
+
+    @Override
+    public int setDestination() {
+        return 0;
+    }
+
+    @Override
+    public int getDestination() {
+        return 0;
+    }
+
+    @Override
+    public boolean vesselAvailable() {
+        return false;
     }
 }

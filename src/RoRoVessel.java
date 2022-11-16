@@ -6,6 +6,7 @@ public class RoRoVessel extends Vessel{
     //Arraylist used to keep track of the vehicles loaded on the RoRoVessel
     ArrayList<Vehicle> vehiclesOnBoard = new ArrayList<>();
 
+    // Constructor for RoRoVessel-objects
     public RoRoVessel (String flagNation, int draft, int length, int width, int laneMeter){
         this.flagNation = flagNation;
         this.draft = draft;
@@ -17,15 +18,17 @@ public class RoRoVessel extends Vessel{
     //Adds vehicles to vehiclesOnBoard arraylist
     @Override
     public void loadingCargo(ArrayList<Cargo> cargoList) {
+        // Clears the vehiclesOnBoard-arraylist to avoid loading the same cargo twice
+        // The cargoList that is being passed as the parameter contains the cargo which have been loaded earlier
         if (vehiclesOnBoard.size()>0){
             vehiclesOnBoard.clear();
         }
         for(int i = 0; i < cargoList.size(); i++){
             Cargo item = cargoList.get(i);
-            if(item instanceof Vehicle){
-                if(calculateLoadedVehicleLength() + ((Vehicle) item).getLength() <= laneMeter){
-                    vehiclesOnBoard.add((Vehicle) item);
-                }
+            // Makes sure that the cargo being loaded is Vehicle-objects
+            // and makes sure that the RoRoVessel's lane meter is not being exceeded
+            if(item instanceof Vehicle && calculateLoadedVehicleLength() + ((Vehicle) item).getLength() <= laneMeter){
+                vehiclesOnBoard.add((Vehicle) item);
             }
         }
     }

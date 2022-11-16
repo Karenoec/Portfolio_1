@@ -6,6 +6,7 @@ public class Tanker extends Vessel {
     //Arraylist used to keep track of the compartments on the Tanker
     ArrayList<Compartment> compartmentOccupied = new ArrayList<>();
 
+    // Constructor for Tanker-objects
     public Tanker (String flagNation, int draft, int length, int width, int compartmentMax){
         this.flagNation = flagNation;
         this.draft = draft;
@@ -24,11 +25,15 @@ public class Tanker extends Vessel {
     //Adds compartments to compartmentOccupied arraylist
     @Override
     public void loadingCargo(ArrayList<Cargo> cargoList) {
+        // Clears the compartmentOccupied-arraylist to avoid loading the same cargo twice
+        // The cargoList that is being passed as the parameter contains the cargo which have been loaded earlier
         if (compartmentOccupied.size()>0){
             compartmentOccupied.clear();
         }
         for(int i = 0; i < cargoList.size(); i++) {
             Cargo item = cargoList.get(i);
+            // Makes sure that the Tanker's maximum compartment amount is not exceeded
+            // and makes sure that the cargo being loaded is Compartment-objects
             if (compartmentOccupied.size() < compartmentMax && item instanceof Compartment){
                 compartmentOccupied.add((Compartment) item);
             }

@@ -6,6 +6,7 @@ public class ContainerVessel extends Vessel{
     //Arraylist used to keep track of the containers loaded on the ContainerVessel
     ArrayList<Container> containersOnBoard = new ArrayList<>();
 
+    // Constructor for ContainerVessel-objects
     public ContainerVessel(String flagNation, int draft, int length, int width, int containerMax){
         this.flagNation = flagNation;
         this.draft = draft;
@@ -17,13 +18,18 @@ public class ContainerVessel extends Vessel{
     //Adds containers to containersOnBoard arraylist
     @Override
     public void loadingCargo(ArrayList<Cargo> cargoList) {
+        // Clears the containersOnBoard-arraylist to avoid loading the same cargo twice
+        // The cargoList that is being passed as the parameter contains the cargo which have been loaded earlier
         if (containersOnBoard.size()>0){
             containersOnBoard.clear();
         }
         for(int i = 0; i < cargoList.size(); i++) {
             Cargo item = cargoList.get(i);
+            // Makes sure that the ContainerVessel's maximum container amount is not exceeded
+            // and makes sure that the cargo being loaded is Container-objects
             if (containersOnBoard.size() < containerMax && item instanceof Container){
                 containersOnBoard.add((Container)item);
+
             }
         }
     }

@@ -22,7 +22,7 @@ public class Main {
         containerList.add(container2);
         containerList.add(container3);
         Mary.loadingCargo(containerList);
-        System.out.println("There are " + Mary.loadedCargoAmount() + " containers occupied on the container vessel and "
+        System.out.println("There are " + Mary.loadedCargoAmount() + " containers loaded onto the container vessel and "
                 + Mary.utilityLevelOfCapacity()*100 + "% of the capacity is being used.");
 
         // Demonstrating loading cargo on a Tanker
@@ -45,7 +45,7 @@ public class Main {
         cargoList.add(car1);
         cargoList.add(truck1);
         Dani.loadingCargo(cargoList);
-        System.out.println("There are " + Dani.loadedCargoAmount() + " vehicles occupied on the RoRo vessel and "
+        System.out.println("There are " + Dani.loadedCargoAmount() + " vehicles loaded onto the RoRo vessel and "
                 + Dani.utilityLevelOfCapacity()*100 + "% of the capacity is being used.");
 
     }
